@@ -10,7 +10,7 @@ public class lanzarChrome {
     public static void main(String[] args) {
         Runtime rt = Runtime.getRuntime();
 
-        try (BufferedReader br = new BufferedReader(new FileReader("archivo")); ){
+        try (BufferedReader br = new BufferedReader(new FileReader("archivo"))){
             rt.exec("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe");
             String linea;
             int status;

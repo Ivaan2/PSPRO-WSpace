@@ -22,7 +22,7 @@ public class flujoEscritura {
             InputStreamReader isr = new InputStreamReader(is);
             File archivo = new File(isr.toString());
             try(FileReader fr = new FileReader(archivo);
-                BufferedReader br = new BufferedReader(fr);){
+                BufferedReader br = new BufferedReader(fr)){
 
                 ArrayList<String> lista = new ArrayList<String>();
                 String linea = br.readLine();
