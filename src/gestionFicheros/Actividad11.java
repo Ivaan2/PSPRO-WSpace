@@ -13,10 +13,6 @@ public class Actividad11 {
         cmd.add(ruta);
         ProcessBuilder pb = new ProcessBuilder(cmd);
 
-        System.out.println("-------------- " + Actividad10.class.getCanonicalName());
-
-
-
         pb.environment().put("CLASSPATH", classpath);
         pb.inheritIO();
 
