@@ -15,18 +15,20 @@ public class CuentaBancaria {
 		saldo = saldo - cantidad;
 	}
 
-	public void retirarDinero(int cant, String nom) {
+	public synchronized void retirarDinero(int cant, String nom) {
 		if (getSaldo() >= cant) {
 			System.out.println("SE VA A RETIRAR SALDO (ACTUAL ES: " + getSaldo() + ")");
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException ex) {
+				ex.printStackTrace();
 			}
 			restar(cant);
 			System.out.println(nom + " retira => " + cant + " ACTUAL(" + getSaldo() + ")");
 		} else {
 			System.out.println(nom + " No puede retirar dinero, NO HAY SALDO (" + getSaldo() + ")");
 		}
+
 		if (getSaldo() < 0) {
 			System.out.println("SALDO NEGATIVO => " + getSaldo());
 		}
