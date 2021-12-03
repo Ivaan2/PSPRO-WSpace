@@ -65,7 +65,6 @@ public class Taxi {
 		setImporteCarrera(c.getNumKmCarrera() * this.precioKmCarrera);
 
 		setDisponible(false);
-		notifyAll();
 	}
 
 	public synchronized void finalizarTrayecto(Cliente c){
