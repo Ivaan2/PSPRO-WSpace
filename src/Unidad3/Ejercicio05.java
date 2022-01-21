@@ -38,14 +38,12 @@ public class Ejercicio05 {
             in = new BufferedReader(new InputStreamReader(inputStream));
             String inputLine;
             String[] palabras;
-
             inputLine = in.readLine();
             palabras = inputLine.split("<br/>");
 
             for (String p: palabras) {
                 System.out.println(p);
             }
-
             for (int i = 0; i < palabras.length; i++){
                 if(i != 0){
                     System.out.print(palabras[i] + " ");
