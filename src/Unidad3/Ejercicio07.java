@@ -2,8 +2,10 @@ package Unidad3;
 
 import java.io.*;
 import java.net.InetAddress;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
 import java.sql.Time;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -24,28 +26,45 @@ public class Ejercicio07 {
         URLConnection urlCon = null;
         Date AAAAMMDD = new Date(2000, 10, 10);
         DateFormat HHMM = new SimpleDateFormat("HHmm");
-        int anyo, mes, dia;
-        String link = "https://www.timeanddate.com/scripts/sunmap.php?iso=AAAAMMDDTHHMM";
+        String anyo, mes, dia, hora, minutos;
+        String link = "https://www.timeanddate.com/scripts/sunmap.php?iso=AAAAMMDDHHMM";
 
         try {
-            link = link.replace("AAAAMMDD", AAAAMMDD.toString());
-            link = link.replace("HHMM", HHMM.toString());
-            url = new URL("https://www.timeanddate.com/scripts/sunmap.php?iso=200210101010");
+            anyo = solicitarAnyo();
+            mes = "08";
+            dia = "16";
+            hora = "12";
+            minutos = "45";
+
+            link = link.replace("AAAAMMDDHHMM", anyo + mes + dia + hora + minutos);
+            System.out.println("Link : " + link);
+            url = new URL(link);
             urlCon = url.openConnection();
 
-            BufferedReader in;
+
             InputStream inputStream = urlCon.getInputStream();
-            in = new BufferedReader(new InputStreamReader(inputStream));
             String inputLine;
-            String ip = null;
-            FileWriter fw = new FileWriter("imagen.jpg");
+            FileOutputStream fos = new FileOutputStream("imagenMapa.jpeg");
+            int TAM = 1024;
+            byte[] buffer = new byte[TAM];
+            BufferedInputStream bin = new BufferedInputStream(inputStream);
+            BufferedOutputStream bos = new BufferedOutputStream(fos);
+            int cantidadBytes = 0;
 
-            if ((inputLine = in.readLine()) != null) {
-                System.out.println(inputLine);
+            System.out.println(url);
+            while ((cantidadBytes = bin.read(buffer, 0 , TAM)) != -1) {
+                bos.write(buffer, 0 , cantidadBytes);
             }
-
+            bos.close();
+            bin.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static String solicitarAnyo() {
+        String anyo = "2";
+        System.out.println("Introduzca un año:");
+        reutrn anyo;
     }
 }
