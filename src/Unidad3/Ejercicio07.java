@@ -1,12 +1,9 @@
 package Unidad3;
 
 import java.io.*;
-import java.net.InetAddress;
-import java.net.MalformedURLException;
+
 import java.net.URL;
 import java.net.URLConnection;
-import java.nio.charset.StandardCharsets;
-import java.sql.Time;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -55,6 +52,7 @@ public class Ejercicio07 {
             while ((cantidadBytes = bin.read(buffer, 0 , TAM)) != -1) {
                 bos.write(buffer, 0 , cantidadBytes);
             }
+
             bos.close();
             bin.close();
         } catch (IOException e) {
@@ -65,6 +63,6 @@ public class Ejercicio07 {
     private static String solicitarAnyo() {
         String anyo = "2";
         System.out.println("Introduzca un año:");
-        reutrn anyo;
+        return anyo;
     }
 }
