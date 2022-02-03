@@ -1,19 +1,17 @@
-package gestionFicheros;
+package pruebas;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Actividad11 {
+public class LanzamientoDesdeClase {
     public static void main(String[] args) {
-        String ruta = ruta = Actividad10.class.getCanonicalName();
-        String classpath = Actividad10.class.getClassLoader().getResource("").getPath();
-        List<String> cmd = new ArrayList<>();
+        String ruta = ProcesoEcho.class.getCanonicalName();
+        List<String> cmd = new ArrayList<String>();
         cmd.add("java");
         cmd.add(ruta);
         ProcessBuilder pb = new ProcessBuilder(cmd);
-
-        pb.environment().put("CLASSPATH", classpath);
+        pb.environment().put("CLASSPATH",ProcesoEcho.class.getClassLoader().getResource("").getPath());
         pb.inheritIO();
 
         try {
@@ -21,5 +19,6 @@ public class Actividad11 {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 }
