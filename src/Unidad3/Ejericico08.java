@@ -31,10 +31,11 @@ public class Ejericico08 {
         try {
             url = new URL(link);
             urlCon  = url.openConnection();
+            leerXML(urlCon);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        leerXML(urlCon);
+
     }
 
     private static void leerXML(URLConnection urlCon) {
@@ -46,21 +47,17 @@ public class Ejericico08 {
             Document document;
             document = builder.parse(urlCon.getInputStream());
             document.getDocumentElement().normalize();
-            Node raiz = document.getDocumentElement();
+            Element raiz = document.getDocumentElement();
 
             for(int i=1; i<24; i++) {
-                NodeList horas = ((Element)raiz).getElementsByTagName("hour"+i);
+                NodeList horas = raiz.getElementsByTagName("hour"+i);
                 Node nodoHorai = horas.item(0);
                 String fecha = ((Element)nodoHorai).getElementsByTagName("date").item(0).getTextContent();
                 String hora = ((Element)nodoHorai).getElementsByTagName("hour_data").item(0).getTextContent();
                 String temperatura = ((Element)nodoHorai).getElementsByTagName("temperature").item(0).getTextContent();
                 System.out.println(fecha + " --> " + hora + ": " + temperatura + "ºC");
             }
-        } catch ( IOException e) {
-            e.printStackTrace();
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
+        } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
     }
