@@ -56,11 +56,7 @@ public class Ejericico08 {
                 String temperatura = ((Element)nodoHorai).getElementsByTagName("temperature").item(0).getTextContent();
                 System.out.println(fecha + " --> " + hora + ": " + temperatura + "ºC");
             }
-        } catch ( IOException e) {
-            e.printStackTrace();
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
+        } catch ( IOException | ParserConfigurationException | SAXException e) {
             e.printStackTrace();
         }
     }
