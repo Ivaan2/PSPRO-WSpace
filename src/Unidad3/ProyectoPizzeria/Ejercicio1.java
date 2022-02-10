@@ -4,9 +4,13 @@ package Unidad3.ProyectoPizzeria;
     @author Ivan
 IMORMEL2002
  */
-public class main {
+public class Ejercicio1 {
 
     public static void main(String[] args) {
+        registrarDatos();
+    }
+
+    private static void registrarDatos() {
         //1
         String nombreTienda1 = "Establecimiento%20uno";
         String nombreTienda2 = "Establecimiento%20dos";

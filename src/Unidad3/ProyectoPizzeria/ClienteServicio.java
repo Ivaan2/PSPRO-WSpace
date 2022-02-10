@@ -11,6 +11,14 @@ public class ClienteServicio {
     protected static final String link = "http://idocentic.website/servicios_para_explotar/pizzeria_psp/";
     public static String cod_autor = "IMORMEL2002";
 
+    public ClienteServicio(){
+
+    }
+
+    public static String getCod_autor() {
+        return cod_autor;
+    }
+
     public static int nuevoEstablecimiento(String nombreEstablecimiento) {
         URL url;
         URLConnection urlCon;
