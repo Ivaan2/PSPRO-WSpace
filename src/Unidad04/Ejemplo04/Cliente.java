@@ -10,7 +10,7 @@ public class Cliente {
     private Socket socket;
     private DataInputStream bufferDeEntrada = null;
     private DataOutputStream bufferDeSalida = null;
-    private static Scanner teclado = new Scanner(System.in);
+    private static final Scanner teclado = new Scanner(System.in);
     final String DESPEDIDA = "ADIÓS";
 
 

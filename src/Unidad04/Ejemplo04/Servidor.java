@@ -12,7 +12,7 @@ public class Servidor {
     private Socket cliente;
     private DataInputStream bufferDeEntrada = null;
     private DataOutputStream bufferDeSalida = null;
-    private static Scanner sc = new Scanner(System.in);
+    private static final Scanner sc = new Scanner(System.in);
     final String DESPEDIDA = "ADIÓS";
 
 
